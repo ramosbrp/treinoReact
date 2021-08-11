@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App title="Hello" user="Gama Academy" soma={ 1 + 2 } />
+    <App title="Hello" />
   </React.StrictMode>,
   document.getElementById('root')
 );

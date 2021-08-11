@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function App(props) {
-  const [ contagem, setContagem ] = useState( 0 );
 
-  const aumentar = () => {
-    setContagem( contagem + 1 );
+  const [ usuario, setUsuario ] = useState('');
+
+  function handlePesquisa() {
+    axios.get(`https://api.github.com/users/${ usuario }/repos`).then(response => console.log(response.data));
   };
 
   return (
     <>
-      {/* <h1>{ props.title } { props.user } </h1> */}
-      {/* <p> { usuario } </p> */}
-      <p> { props.soma } </p>
-      <input placeholder="usuário" className="usuarioInput" name="usuario" id="usuario" ></input>
-      <button type="button" >Pesquisar</button>
-      <div> { contagem } </div>
-      <button onClick= { aumentar } >Clique para aumentar</button>
+      <input placeholder="usuário"  name="usuario" value={ usuario } onChange={ e => setUsuario(e.target.value) } ></input>
+      <button type="button" onClick={ handlePesquisa } >Pesquisar</button>
     </>
   );
-}
+};
 
 export default App;
