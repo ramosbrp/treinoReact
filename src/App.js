@@ -1,10 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
-function App() {
+function App(props) {
+  // const [ usuario, setUsuario ] = useState('Bruno');
+
   return (
-    <input  ></input>
-    
+    <>
+      {/* <h1>{ props.title } { props.user } </h1> */}
+      <p> { usuario } </p>
+      <input placeholder="usuário" className="usuarioInput" name="usuario" id="usuario" ></input>
+      <button type="button" >Pesquisar</button>
+    </>
   );
 }
 
