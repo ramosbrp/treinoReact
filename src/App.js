@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function App(props) {
+export default function App(props) {
 
   const [ usuario, setUsuario ] = useState('');
 
@@ -17,4 +17,4 @@ function App(props) {
   );
 };
 
-export default App;
+
