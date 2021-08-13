@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import * as S from './styled';
+
 
 export default function App(props) {
 
@@ -10,10 +12,10 @@ export default function App(props) {
   };
 
   return (
-    <>
-      <input placeholder="usuário"  name="usuario" value={ usuario } onChange={ e => setUsuario(e.target.value) } ></input>
-      <button type="button" onClick={ handlePesquisa } >Pesquisar</button>
-    </>
+    <S.Container>
+      <S.Input placeholder="usuário"  name="usuario" value={ usuario } onChange={ e => setUsuario(e.target.value) } ></S.Input>
+      <S.Button type="button" onClick={ handlePesquisa } >Pesquisar</S.Button>
+    </S.Container>
   );
 };
 
