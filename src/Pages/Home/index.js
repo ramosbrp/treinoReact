@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 export default function App(props) {
   const history = useHistory();
+  // Capturando usuário
   const [ usuario, setUsuario ] = useState('');
 
   function handlePesquisa() {
@@ -14,7 +15,9 @@ export default function App(props) {
       repositories.map((repository) => {
         repositoriesName.push(repository.name);
       });
+      // Armazendando no Storage
       localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+      // Renderizando
       history.push('/repositories');
     });
   };
