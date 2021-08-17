@@ -25,7 +25,7 @@ export default function Repositories(props) {
                     )
                 }) }
             </S.List>
-            <Link to="/">Voltar</Link>
+            <S.LinkHome to="/">Voltar</S.LinkHome>
         </S.Container>
     );
 };
