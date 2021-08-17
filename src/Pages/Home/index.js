@@ -7,7 +7,9 @@ export default function App(props) {
   const history = useHistory();
   // Capturando usuário
   const [ usuario, setUsuario ] = useState('');
+  // Capturando erro
   const [ erro, setErro ] = useState(false);
+
   function handlePesquisa() {
     axios.get(`https://api.github.com/users/${ usuario }/repos`)
     .then(response => {
@@ -27,16 +29,16 @@ export default function App(props) {
   };
 
   return (
-    <>
+    
       <S.HomeContainer>
         <S.Content>
           <S.Input placeholder="usuário"  name="usuario" value={ usuario } onChange={ 
           e => setUsuario(e.target.value) } ></S.Input>
           <S.Button type="button" onClick={ handlePesquisa } >Pesquisar</S.Button>
-          { erro ? <S.ErrorMsg>Ocorreu um erro. Tente novamente.</S.ErrorMsg> : "" }
         </S.Content>
+          { erro ? <S.ErrorMsg>Ocorreu um erro. Tente novamente.</S.ErrorMsg> : "" }
       </S.HomeContainer>
-    </>
+    
   );
 };
 

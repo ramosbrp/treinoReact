@@ -41,6 +41,6 @@ export const ErrorMsg = styled.span`
     display: block;
     font-size: .65rem;
     color: red;
-    font-weight: 600
+    font-weight: 600;
     margin-top: 1rem;
 `;
