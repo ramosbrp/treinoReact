@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styled';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function Repositories(props) {
+    const history = useHistory();
     // Instanciando repositories como array vazio
     const [ repositories, setRepositories ] = useState([]);
 
     useEffect ( () => {
         // Pegando itens do storage
         let repositoriesName = localStorage.getItem('repositoriesName');
-        // Convertendo pra JSON
+        if(repositoriesName != null) {
+            // Convertendo pra JSON
         repositoriesName = JSON.parse(repositoriesName);
         setRepositories (repositoriesName);
-        // localStorage.clear();
+        localStorage.clear();
+        } else {
+            history.push('/');
+        }
+        
     }, [] );
 
     return(
