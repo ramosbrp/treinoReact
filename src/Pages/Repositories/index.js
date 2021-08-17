@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styled';
+import { Link } from 'react-router-dom';
 
-export default function Repositories() {
+export default function Repositories(props) {
     // Instanciando repositories como array vazio
     const [ repositories, setRepositories ] = useState([]);
 
@@ -10,10 +11,10 @@ export default function Repositories() {
         let repositoriesName = localStorage.getItem('repositoriesName');
         // Convertendo pra JSON
         repositoriesName = JSON.parse(repositoriesName);
-        console.log(repositoriesName);
         setRepositories (repositoriesName);
-        localStorage.clear();
+        // localStorage.clear();
     }, [] );
+
     return(
         <S.Container>
             <S.Title>Repositórios</S.Title>
@@ -24,9 +25,8 @@ export default function Repositories() {
                     )
                 }) }
             </S.List>
+            <Link to="/">Voltar</Link>
         </S.Container>
     );
 };
-
-
 

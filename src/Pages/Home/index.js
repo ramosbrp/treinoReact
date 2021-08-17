@@ -15,7 +15,7 @@ export default function App(props) {
       repositories.map((repository) => {
         repositoriesName.push(repository.name);
       });
-      // Armazendando no Storage
+      // Armazendando no Storage e convertendo pra string
       localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
       // Renderizando
       history.push('/repositories');
@@ -24,7 +24,8 @@ export default function App(props) {
 
   return (
     <S.Container>
-      <S.Input placeholder="usuário"  name="usuario" value={ usuario } onChange={ e => setUsuario(e.target.value) } ></S.Input>
+      <S.Input placeholder="usuário"  name="usuario" value={ usuario } onChange={ 
+      e => setUsuario(e.target.value) } ></S.Input>
       <S.Button type="button" onClick={ handlePesquisa } >Pesquisar</S.Button>
     </S.Container>
   );
